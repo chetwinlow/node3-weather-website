@@ -8,12 +8,9 @@ const forecast = (lat, long, callback) => {
         } else if (body.error) {
             callback('Invalid lat long, try again boiii')
         } else {
-            const { observation_time, temperature, feelslike } = body.current
-            callback(undefined, {
-                observation_time,
-                temperature,
-                feelslike
-            })
+            callback(undefined,
+                body.current.weather_descriptions[0] + ". It is currently " + body.current.temperature + ' degrees out.  It feels like ' +
+                body.current.feelslike + " degrees out. The humidity is " + body.current.humidity + "%. ")
         }
     })
 }

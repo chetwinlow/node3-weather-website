@@ -57,10 +57,8 @@ app.get('/weather', (req, res) => {
                 return res.send({ error })
             }
             res.send({
-                temperature: data.temperature,
-                feelslike: data.feelslike,
                 location,
-                address: req.query.address
+                forecast: data
             })
         })
     })
